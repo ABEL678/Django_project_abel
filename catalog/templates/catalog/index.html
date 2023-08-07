@@ -1,25 +1,44 @@
 {% extends 'catalog/home.html' %}
-
+{% load my_tags %}
 
 {% block content %}
 <div class="row text-center">
     {% for object in object_list %}
         <div class="col-3">
             <div class="card mb-4 box-shadow">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">{{object.product_name}}</h4>
-                </div>
+                <img class="card-img-top"
+                     src="{{ object.image|mymedia }}"
+                     alt="Card image cap">
+
                 <div class="card-body">
-                    <h1 class="card-title pricing-card-title">{{object.price}} руб.</h1>
-                    <img src=>{{object.image}}</img>
-                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
-                        <li>- {{object.description}}</li>
-                        <li>Категория: {{object.category}}</li>
-                    </ul>
+                    <table class="table table-striped">
+                        <tr>
+                            <td class="w-25">Наименование товара:</td>
+                            <td>{{ object.product_name }}</td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">Категория товара:</td>
+                            <td>{{ object.category }}</td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">Дата создания:</td>
+                            <td>{{ object.date_of_add }}</td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">Описание товара:</td>
+                            <td>{{ object.description }}</td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">Цена:</td>
+                            <td><b>{{ object.price }} руб.</b></td>
+                        </tr>
+                    </table>
+
                     <button type="button" class="btn btn-lg btn-block btn-outline-primary">Купить</button>
                 </div>
             </div>
         </div>
+
     {% endfor %}
 </div>
 {% endblock %}

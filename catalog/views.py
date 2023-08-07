@@ -6,8 +6,7 @@ from catalog.models import Product
 def index(request):
     content = {
         'object_list': Product.objects.all(),
-        'title': 'Наши товары'
-    }
+            }
     return render(request, 'catalog/index.html', content)
 
 
