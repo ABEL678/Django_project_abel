@@ -1,0 +1,43 @@
+{% extends 'catalog/home.html' %}
+
+{% block content%}
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4">
+                <img src="{{ object.image|mymedia }}"
+                     alt="Изображение товара" class="img-fluid">
+            </div>
+
+            <div class="card-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <td class="w-25">Наименование товара:</td>
+                            <td>{{ object.product_name }}</td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">Категория товара:</td>
+                            <td>{{ object.category }}</td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">Дата создания:</td>
+                            <td>{{ object.date_of_add }}</td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">Описание товара:</td>
+                            <td>{{ object.description }}</td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">Цена:</td>
+                            <td><b>{{ object.price }} руб.</b></td>
+                        </tr>
+                    </table>
+
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Купить</button>
+                </div>
+
+
+        </div>
+    </div>
+{% endblock %}
